@@ -1,5 +1,5 @@
 {% set name = "dukpy" %}
-{% set version = "0.2.2" %}
+{% set version = "0.2.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/amol-/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 081eda6d60053dc6b141171ff6cfd5dfd037ab06d4ad5fbeaf01b850029cac3d
+  sha256: 4a79269aeca6ce446a5af7db3f6158a2e24d03c155d6af43f3b3f552306a6856
 
 
 build:
-  number: 1
-  script: "{{ PYTHON }} -m pip install . -vv"
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - dukpy-install=dukpy.install:main
     - dukpy=dukpy.run:main
@@ -39,7 +39,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'A simple javascript interpreter for Python'
+  summary: A simple javascript interpreter for Python
 
   description: |
     DukPy is a simple javascript interpreter for Python built on top of duktape engine without any external dependency. 
