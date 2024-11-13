@@ -23,12 +23,12 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
-    - setuptools  # [osx]
+    - setuptools  # [osx and arm64]
   host:
     - python
     - pip
     - webassets
-    - setuptools  # [osx]
+    - setuptools  # [osx and arm64]
   run:
     - python
     - webassets
