@@ -27,7 +27,7 @@ requirements:
     - python
     - pip
     - webassets
-    - setupools #[osx]
+    - setupools # [osx]
   run:
     - python
     - webassets
