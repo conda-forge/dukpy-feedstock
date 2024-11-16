@@ -23,7 +23,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
-    - crossenv                               # [build_platform != target_platform]
+    - clang =14                        # [arm64]
   host:
     - python
     - pip
