@@ -1,2 +1,2 @@
 c_compiler_version:
-  - 15  # [arm64]
+  - 15                                 # [osx and arm64]
