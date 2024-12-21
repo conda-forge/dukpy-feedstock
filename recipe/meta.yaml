@@ -1,5 +1,5 @@
 {% set name = "dukpy" %}
-{% set version = "0.2.3" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/amol-/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 4a79269aeca6ce446a5af7db3f6158a2e24d03c155d6af43f3b3f552306a6856
+  sha256: b1a518a758109bbefe202d6b5c98ed4d2c84c5b2e9c777ec787343dbb8d6579d
 
 
 build:
-  number: 4
-  script: {{ PYTHON }} -m pip install . -vv
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
     - dukpy-install=dukpy.install:main
     - dukpy=dukpy.run:main
@@ -22,10 +22,12 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - pip
     - webassets
+    - setuptools
   run:
     - python
     - webassets
@@ -52,3 +54,4 @@ about:
 extra:
   recipe-maintainers:
     - pvanheus
+    - HeavyTony2
