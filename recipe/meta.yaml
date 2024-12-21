@@ -12,7 +12,9 @@ source:
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  script: 
+    - export CFLAGS="$CFLAGS -fno-define-target-os-macros"
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
     - dukpy-install=dukpy.install:main
     - dukpy=dukpy.run:main

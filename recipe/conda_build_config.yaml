@@ -1,3 +1,0 @@
-c_compiler_version:
-  - 18.1.5                                 # [osx and arm64]
-#Missing TargetConditionals.h with 18.1.6 and higher versions https://releases.llvm.org/18.1.6/tools/clang/docs/ReleaseNotes.html#clang-frontend-potentially-breaking-changes
