@@ -12,9 +12,7 @@ source:
 
 build:
   number: 0
-  script: 
-    - export CFLAGS="${CFLAGS} -fno-define-target-os-macros"  # [osx and arm64]
-    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
     - dukpy-install=dukpy.install:main
     - dukpy=dukpy.run:main
@@ -25,7 +23,6 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
-    - {{ compiler('cxx') }}
   host:
     - python
     - pip
