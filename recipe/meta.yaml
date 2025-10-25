@@ -11,7 +11,7 @@ source:
 
 
 build:
-  number: 2
+  number: 3
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
     - dukpy-install=dukpy.install:main
@@ -37,6 +37,9 @@ test:
     - dukpy
   commands:
     - dukpy -h
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/amol-/dukpy
@@ -44,10 +47,8 @@ about:
   license_family: MIT
   license_file: LICENSE
   summary: A simple javascript interpreter for Python
-
   description: |
     DukPy is a simple javascript interpreter for Python built on top of duktape engine without any external dependency. 
-
   doc_url: https://github.com/amol-/dukpy
   dev_url: https://github.com/amol-/dukpy
 
