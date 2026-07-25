@@ -14,8 +14,8 @@ build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
-    - dukpy-install=dukpy.install:main
-    - dukpy=dukpy.run:main
+    - dukpy-install = dukpy.install:main
+    - dukpy = dukpy.cli:main
 
 requirements:
   build:
@@ -36,7 +36,8 @@ test:
   imports:
     - dukpy
   commands:
-    - dukpy -h
+    - dukpy-install --help
+    - dukpy --help
     - pip check
   requires:
     - pip
