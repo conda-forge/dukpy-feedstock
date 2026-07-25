@@ -1,5 +1,5 @@
 {% set name = "dukpy" %}
-{% set version = "0.5.1" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,15 +7,15 @@ package:
 
 source:
   url: https://github.com/amol-/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: d75b3182b0df69d0f0963099c20d6d98be6b02c88751e646ca27489facb42c99
+  sha256: e25e582b45165bf272e14bab0f9ac52c01d941ad59a2ad73f3efd9a7c76acc92
 
 
 build:
   number: 1
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
-    - dukpy-install=dukpy.install:main
-    - dukpy=dukpy.run:main
+    - dukpy-install = dukpy.install:main
+    - dukpy = dukpy.cli:main
 
 requirements:
   build:
@@ -36,7 +36,8 @@ test:
   imports:
     - dukpy
   commands:
-    - dukpy -h
+    - dukpy-install --help
+    - dukpy --help
     - pip check
   requires:
     - pip
